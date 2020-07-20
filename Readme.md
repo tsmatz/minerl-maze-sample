@@ -93,7 +93,7 @@ cd simulate
 python3 simulate_agent.py --checkpoint_file {your trained checkpoint file}
 ```
 
-You can also run a pre-trained agent in this GitHub repository (```checkpoint/checkpoint-613```).
+You can also run a pre-trained agent in this GitHub repository (```checkpoint/checkpoint-645```).
 
 ```
 cd simulate
