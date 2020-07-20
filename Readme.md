@@ -72,12 +72,10 @@ cd train
 python3 train_minerl.py
 ```
 
-
-![Train with minerl](https://tsmatz.files.wordpress.com/2020/07/20200717_training_capture.gif)
-
-
 > This training will take so long time, since it runs on a single instance. To run distributed training, configure ray cluster (multiple workers). (You can quickly configure using [Azure Machine Learning](https://tsmatz.wordpress.com/2018/11/20/azure-machine-learning-services/) on cloud.)
 > Each workers (in a cluster) should be configured to run a virtual monitor, since it runs as a batch.
+
+![Train with minerl](https://tsmatz.files.wordpress.com/2020/07/20200717_training_capture.gif)
 
 ## 5. Simulate a trained agent
 
