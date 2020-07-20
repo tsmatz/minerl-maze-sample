@@ -63,7 +63,7 @@ pip3 install pandas tensorflow==1.15 tensorboardX tabulate dm_tree lz4 ray==0.8.
 
 ## 4. Run a training (reinforcement learning)
 
-Login to your machine with remote desktop (with a monitor).
+Login to computer with remote desktop client (with a monitor).
 
 When it launches 2 instances of Minecraft client, please close one, which is not used for training. (Ray will create a dummy env in order to see settings in environment, such as, action space or observation space.)
 
@@ -77,7 +77,9 @@ python3 train_minerl.py
 
 ## 5. Simulate a trained agent
 
-When you have completed a training, run and simulate your trained agent.
+When you have completed a training, run and check your trained agent.
+
+Login to computer with remote desktop client (with a monitor).
 
 First, please launch Minecraft client with malmo mod.
 
@@ -93,7 +95,8 @@ cd simulate
 python3 simulate_agent.py --checkpoint_file {your trained checkpoint file}
 ```
 
-You can also run a pre-trained agent in this GitHub repository (```checkpoint/checkpoint-645```).
+This repository includes a pre-trained agent (```checkpoint/checkpoint-645```).    
+Then you can also run this checkpoint as follows.
 
 ```
 cd simulate
