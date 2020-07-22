@@ -25,8 +25,8 @@ sudo apt-get -y install python3-pip
 sudo -H pip3 install --upgrade pip
 ```
 
-MineRL requires a monitor (screen) to run Minecraft.    
-Then, install and start service for remote desktop (such as, VNC).
+MineRL requires a monitor (screen), such as VNC, to run Minecraft.    
+Then, install and start service for X remote desktop.
 
 ```
 sudo apt-get update
