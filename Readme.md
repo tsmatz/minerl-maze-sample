@@ -148,7 +148,7 @@ ps -aux | grep vnc
 export DISPLAY=:10
 ```
 
-When you cannot directly show outputs in your monitor, please divert outputs through a virtual monitor (xvfb).<br>
+When you cannot directly show outputs in your physical monitor, please divert outputs through a virtual monitor (xvfb).<br>
 For instance, the following will show outputs (Minecraft game) in your own VNC viewer.
 
 ```
