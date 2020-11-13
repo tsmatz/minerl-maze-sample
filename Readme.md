@@ -104,3 +104,63 @@ python3 simulate_agent.py
 ```
 
 ![Simulate a trained agent](https://tsmatz.files.wordpress.com/2020/07/20200717_rollout_capture.gif)
+
+## Appendix : Trouble Shooting
+
+**Xrdp won't accept a special character for password.**
+
+Please create a new user with simple password.
+
+**Error in desktop session start**
+
+You can see error details in ```~/.xsession-errors```, when it has some touble to start xrdp (X remote desktop) session. Use ```mate-session``` in ```~/.xsession``` to fix, if needed.
+
+**DSVM or ML compute**
+
+When you use data science virtual machine (DSVM) or [AML](https://tsmatz.wordpress.com/2018/11/20/azure-machine-learning-services/) compute in Azure :
+
+- Deactivate conda environment, since MineRL cannot be installed with conda.
+
+```
+echo -e "conda deactivate" >> ~/.bashrc
+source ~/.bashrc
+```
+
+- It will include NVidia cuda, even when you run on CPU VM. This will cause a driver error ("no OpenGL context found in the current thread") when you run Minecraft java server with malmo mod.<br>
+  Then please ensure to uninstall cuda.
+
+```
+sudo apt-get purge nvidia*
+sudo apt-get autoremove
+sudo apt-get autoclean
+sudo rm -rf /usr/local/cuda*
+```
+
+**Display (Monitor Output) errors**
+
+When your application cannot detect your display (monitor), please ensure to set ```DISPLAY``` as follows.<br>
+(The error "MineRL could not detect an X Server, Monitor, or Virtual Monitor" will show up.)
+
+```
+# see your display id
+ps -aux | grep vnc
+# set display id
+export DISPLAY=:10
+```
+
+When you cannot directly show outputs in your monitor, please divert outputs through a virtual monitor (xvfb).<br>
+For instance, the following will show outputs (Minecraft game) in your own VNC viewer.
+
+```
+# install components
+sudo apt-get install xvfb
+sudo apt-get install x11vnc
+sudo apt-get install xtightvncviewer
+# generate xvfb monitor (99) and bypass to real monitor (10)
+/usr/bin/Xvfb :99 -screen 0 768x1024x24 &
+/usr/bin/x11vnc -rfbport 5902 -forever -display :99 &
+DISPLAY=:10 /usr/bin/vncviewer localhost:5902 &
+# run program
+export DISPLAY=:99
+python3 train.py
+```
