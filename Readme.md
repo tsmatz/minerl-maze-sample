@@ -35,13 +35,15 @@ sudo apt-get install xrdp -y
 /etc/init.d/xrdp start  # password is required
 ```
 
-> Use a virtual monitor (such as, ```xvfb```) instead, when you run training as a batch. (For simplicity, we use a real monitor in this example.)
+> Use a virtual monitor (such as, ```xvfb```) instead, when you run training as a batch in background. (Here we use a real monitor for debugging.)
 
 Allow inbound port 3389 (remote desktop protocol) for this computer in network setting.
 
+> You can also use SSH tunnel (port 22) instead.
+
 Restart your computer.
 
-Finally, install Java runtime and set ```JAVA_HOME```, since Minecarft client with mods (Java version) is used.
+Finally, install Java runtime and set ```JAVA_HOME```, since it runs on Minecarft java version (with mods).
 
 ```
 sudo apt-get install openjdk-8-jdk
@@ -63,32 +65,32 @@ pip3 install pandas tensorflow==1.15 tensorboardX tabulate dm_tree lz4 ray==0.8.
 
 ## 4. Run a training (reinforcement learning)
 
-Login to computer with remote desktop client (with a monitor).
+Login to computer with remote desktop client. (Please use a monitor for debugging.)<br>
+Now run the training script (train_minerl.py).
 
-When it launches 2 instances of Minecraft client, please close one, which is not used for training. (Ray will create a dummy env in order to see settings in environment, such as, action space or observation space.)
+When it launches (opens) 2 instances of Minecraft client, please close one which is not used for training. (In order to see settings in an environment, such as, action space or observation space, Ray framework will create a dummy environment inside.)
 
 ```
 cd train
 python3 train_minerl.py
 ```
 
-> This training will take so long time, since it runs on a single instance. To run distributed training, configure ray cluster (multiple workers). (You can quickly configure using [Azure Machine Learning](https://tsmatz.wordpress.com/2018/11/20/azure-machine-learning-services/) on cloud.)    
-> Each workers (in a cluster) should be configured to run a virtual monitor, since it runs as a batch.
+> This training will take so long time, since it runs on a single instance. To run distributed training, configure and run on ray cluster (multiple workers). (You can quickly configure using built-in RL estimator on [Azure Machine Learning](https://tsmatz.wordpress.com/2018/11/20/azure-machine-learning-services/).)    
+> Each workers (in a cluster) should be configured to use a virtual monitor, since it runs as a batch in backgroud.
 
 ## 5. Simulate a trained agent
 
-When you have completed a training, run and check your trained agent.
+When you have completed, run and check your trained agent.<br>
+To do this,
 
-Login to computer with remote desktop client (with a monitor).
-
-First, please launch Minecraft client with malmo mod.
+First, login to computer with remote desktop client and launch Minecraft client with malmo mod as follows.
 
 ```
 cd simulate
 python3 launch_client.py
 ```
 
-In another shell, run and simulate your trained agent.
+In another shell, run and simulate your trained agent as follows.
 
 ```
 cd simulate
@@ -96,7 +98,7 @@ python3 simulate_agent.py --checkpoint_file {your trained checkpoint file}
 ```
 
 This repository includes a pre-trained agent (```checkpoint/checkpoint-645```).    
-Then you can also run this checkpoint as follows.
+Run this checkpoint as follows, if you don't have any trained agent.
 
 ```
 cd simulate
