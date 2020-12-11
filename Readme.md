@@ -63,10 +63,16 @@ pip3 install minerl==0.3.6
 pip3 install pandas tensorflow==1.15 tensorboardX tabulate dm_tree lz4 ray==0.8.3 ray[rllib]==0.8.3 ray[tune]==0.8.3
 ```
 
-## 4. Run a training (reinforcement learning)
+## 4. Run a training (Reinforcement Learning)
 
-Login to computer with remote desktop client. (Please use a monitor for debugging.)<br>
-Now run the training script (train_minerl.py).
+Login to computer with remote desktop client (please use a monitor for debugging) and clone this repository.
+
+```
+git clone https://github.com/tsmatz/minerl-maze-sample.git
+cd minerl-maze-sample
+```
+
+Now run the training script (train_minerl.py) as follows.
 
 When it launches (opens) 2 instances of Minecraft client, please close one which is not used for training. (In order to see settings in an environment, such as, action space or observation space, Ray framework will create a dummy environment inside.)
 
