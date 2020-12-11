@@ -109,13 +109,13 @@ python3 simulate_agent.py
 
 **Xrdp won't accept a special character for password.**
 
-Please create a new user with simple password.
+Please create a new user with a simple password.
 
 **Error in desktop session start**
 
-You can see error details in ```~/.xsession-errors```, when it has some touble to start xrdp (X remote desktop) session. Use ```mate-session``` in ```~/.xsession``` to fix, if needed.
+See error details in ```~/.xsession-errors```, when it has some toubles to start xrdp (X remote desktop) session. Set ```mate-session``` in ```~/.xsession``` to fix, if needed.
 
-**DSVM or ML compute**
+**Azure DSVM or ML compute**
 
 When you use data science virtual machine (DSVM) or [AML](https://tsmatz.wordpress.com/2018/11/20/azure-machine-learning-services/) compute in Azure :
 
@@ -127,7 +127,7 @@ source ~/.bashrc
 ```
 
 - It will include NVidia cuda, even when you run on CPU VM. This will cause a driver error ("no OpenGL context found in the current thread") when you run Minecraft java server with malmo mod.<br>
-  Then please ensure to uninstall cuda.
+  Thereby, please ensure to uninstall cuda.
 
 ```
 sudo apt-get purge nvidia*
@@ -136,20 +136,20 @@ sudo apt-get autoclean
 sudo rm -rf /usr/local/cuda*
 ```
 
-**Display (Monitor Output) errors**
+**Errors for display setting (monitor)**
 
 When your application cannot detect your display (monitor), please ensure to set ```DISPLAY``` as follows.<br>
-(The error "MineRL could not detect an X Server, Monitor, or Virtual Monitor" will show up.)
+(The error message "MineRL could not detect a X Server, Monitor, or Virtual Monitor" will show up.)
 
 ```
-# see your display id
+# check your display id
 ps -aux | grep vnc
-# set display id
+# set display id (when your display id is 10)
 export DISPLAY=:10
 ```
 
 When you cannot directly show outputs in your physical monitor, please divert outputs through a virtual monitor (xvfb).<br>
-For instance, the following will show outputs (Minecraft game) in your own VNC viewer.
+For instance, the following will show outputs (Minecraft game) on your own VNC viewer window through a virtual monitor (xvfb).
 
 ```
 # install components
