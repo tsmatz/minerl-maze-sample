@@ -43,7 +43,7 @@ Allow inbound port 3389 (remote desktop protocol) for this computer in network s
 
 Restart your computer.
 
-Finally, install Java runtime and set ```JAVA_HOME```, since it runs on Minecarft java version (with mods).
+Finally, install Java runtime and set ```JAVA_HOME```, since it runs on Minecraft java edition (with mods).
 
 ```
 sudo apt-get install openjdk-8-jdk
