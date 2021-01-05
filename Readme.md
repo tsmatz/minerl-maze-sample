@@ -63,7 +63,7 @@ pip3 install minerl==0.3.6
 pip3 install pandas tensorflow==1.15 tensorboardX tabulate dm_tree lz4 ray==0.8.3 ray[rllib]==0.8.3 ray[tune]==0.8.3
 ```
 
-## 4. Run a training (Reinforcement Learning)
+## 4. Train an agent (Reinforcement Learning)
 
 Login to computer with remote desktop client (please use a monitor for debugging) and clone this repository.
 
@@ -84,7 +84,7 @@ python3 train_minerl.py
 > This training will take so long time, since it runs on a single instance. To run distributed training, configure and run on ray cluster (multiple workers). (You can quickly configure using built-in RL estimator on [Azure Machine Learning](https://tsmatz.wordpress.com/2018/11/20/azure-machine-learning-services/).)    
 > Each workers (in a cluster) should be configured to use a virtual monitor, since it runs as a batch in backgroud.
 
-## 5. Simulate a trained agent
+## 5. Run a trained agent
 
 When you have completed, run and check your trained agent.<br>
 To do this,
@@ -96,15 +96,8 @@ cd simulate
 python3 launch_client.py
 ```
 
-In another shell, run and simulate your trained agent as follows.
-
-```
-cd simulate
-python3 simulate_agent.py --checkpoint_file {your trained checkpoint file}
-```
-
-This repository includes a pre-trained agent (```checkpoint/checkpoint-645```).    
-Run this checkpoint as follows, if you don't have any trained agent.
+In another shell, run and simulate a trained agent as follows.<br>
+This will run a pre-trained agent on ```checkpoint/checkpoint-645``` in this repo.
 
 ```
 cd simulate
@@ -112,6 +105,13 @@ python3 simulate_agent.py
 ```
 
 ![Simulate a trained agent](https://tsmatz.files.wordpress.com/2020/07/20200717_rollout_capture.gif)
+
+If you have your own trained agent, you can also run and simulate with your own checkpoint file as follows.
+
+```
+cd simulate
+python3 simulate_agent.py --checkpoint_file {your trained checkpoint file}
+```
 
 ## Appendix : Trouble Shooting
 
