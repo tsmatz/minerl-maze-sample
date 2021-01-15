@@ -65,7 +65,10 @@ pip3 install pandas tensorflow==1.15 tensorboardX tabulate dm_tree lz4 ray==0.8.
 
 ## 4. Train an agent (Reinforcement Learning)
 
-Login to computer with remote desktop client (please use a monitor for debugging) and clone this repository.
+Login to computer with remote desktop client (please use a monitor for debugging).<br>
+Here I have used built-in remote desktop client in Windows, but please use appropriate X terminal client depending on your working environment. (See "Trouble Shooting" in the appendix below.)
+
+After logging-in, clone this repository.
 
 ```
 git clone https://github.com/tsmatz/minerl-maze-sample.git
