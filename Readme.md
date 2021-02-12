@@ -4,7 +4,7 @@ This sample code trains an agent in Minecraft with reinforcement learning.
 In this example, an agent will learn to reach to a goal block in a given maze.
 
 **Do not use low-spec machine**, since the training worker will request enough resources.    
-(Here I used Ubuntu 18.04 on Standard D3 v2 with 4 cores and 14 GB RAM in Microsoft Azure.)
+(Here I used Ubuntu 18.04 on Standard D3 v2 with 4 cores and 14 GB RAM in Microsoft Azure. GPU-utilized instance will help improve batch to train more faster.)
 
 See my post "[Enjoy AI in Minecraft (Malmo and MineRL)](https://tsmatz.wordpress.com/2020/07/09/minerl-and-malmo-reinforcement-learning-in-minecraft/)" for details and background.
 
