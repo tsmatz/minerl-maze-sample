@@ -84,7 +84,7 @@ cd train
 python3 train_minerl.py
 ```
 
-> Please change ```MsPerTick``` in mission file to speed up training. (This uses 50 millisecs between ticks, which is the default value in normal Minecraft game.)
+> Please change ```MsPerTick``` in mission file to speed up training. (This uses 50 millisecs between ticks, which is the default value in normal Minecraft game.)<br>
 > You can also run training on multiple workers in Ray cluster to speed up training. Each workers in a cluster should be configured to use a virtual monitor, since it runs as a batch in backgroud. (Using [Azure Machine Learning](https://tsmatz.wordpress.com/2018/11/20/azure-machine-learning-services/), you can quickly configure cluster with built-in RL estimator.)
 
 ## 5. Run and check a trained agent
