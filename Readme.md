@@ -84,10 +84,10 @@ cd train
 python3 train_minerl.py
 ```
 
-> This training will take so long time, since it runs on a single instance. To run distributed training, configure and run on ray cluster (multiple workers). (You can quickly configure using built-in RL estimator on [Azure Machine Learning](https://tsmatz.wordpress.com/2018/11/20/azure-machine-learning-services/).)    
-> Each workers (in a cluster) should be configured to use a virtual monitor, since it runs as a batch in backgroud.
+> Please change ```MsPerTick``` in mission file to speed up training. (This uses 50 millisecs between ticks, which is the default value in normal Minecraft game.)
+> You can also run training on multiple workers in Ray cluster to speed up training. Each workers in a cluster should be configured to use a virtual monitor, since it runs as a batch in backgroud. (Using [Azure Machine Learning](https://tsmatz.wordpress.com/2018/11/20/azure-machine-learning-services/), you can quickly configure cluster with built-in RL estimator.)
 
-## 5. Run a trained agent
+## 5. Run and check a trained agent
 
 When you have completed, run and check your trained agent.<br>
 To do this,
